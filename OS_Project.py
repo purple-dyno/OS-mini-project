@@ -14,10 +14,10 @@ def SBP():
     root = Tk()
     root.title("Sleeping Barber Problem Solution")
     root.geometry("1920x1080")
-    c = Canvas(root, bg='cyan', height=1080, width=1920)
+    c = Canvas(root, bg='white', height=1080, width=1920)
     c.pack()
     img = ImageTk.PhotoImage(Image.open("images/bg.jpg"))
-    c.create_image(0, 0, anchor=NW, image=img)
+
     c.create_rectangle(100, 100, 1400, 650, fill='white')
     c.create_rectangle(110, 110, 500, 640, fill='white')
     c.create_rectangle(510, 110, 1100, 640, fill='white')
@@ -126,7 +126,7 @@ class Customer(Thread):
             if come == 1:
                 come = 0
                 img16 = ImageTk.PhotoImage(Image.open("images/entering.png"))
-                i16 = c.create_image(1120, 250, anchor=NW, image=img16)
+                i16 = c.create_image(1145, 200, anchor=NW, image=img16)
                 time.sleep(1)
                 c.delete(i16)
                 if noofseats > 0:
@@ -157,12 +157,12 @@ class Customer(Thread):
                 elif noofseats == 0:
                     img17 = ImageTk.PhotoImage(
                         Image.open("images/nospace.png"))
-                    i17 = c.create_image(1120, 250, anchor=NW, image=img17)
+                    i17 = c.create_image(1145, 200, anchor=NW, image=img17)
                     time.sleep(0.5)
                     c.delete(i17)
                     img18 = ImageTk.PhotoImage(
                         Image.open("images/leaving.png"))
-                    i18 = c.create_image(1120, 250, anchor=NW, image=img18)
+                    i18 = c.create_image(1145, 200, anchor=NW, image=img18)
                     time.sleep(1)
                     c.delete(i18)
                     print("Customer Enters But There is No Space, Customer Leaves")
