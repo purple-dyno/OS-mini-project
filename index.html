@@ -28,10 +28,15 @@
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
               <pre><code>numberOfSeatWR = <code id="numberOfSeatWR"></code></code></pre>
               <button type="button" class="btn btn-dark" onclick="increase('numberOfSeatWR')">increase</button>
               <button type="button" class="btn btn-dark" onclick="decrease('numberOfSeatWR')">decrease</button>
+            </div>
+            <div class="col-sm-6">
+              <pre><code>come = <code id="come"></code></code></pre>
+              <button type="button" class="btn btn-dark" onclick="increase('come')">increase</button>
+              <button type="button" class="btn btn-dark" onclick="decrease('come')">decrease</button>
             </div>
             <div class="col-sm-4">
               <pre>
@@ -62,7 +67,7 @@
         signal(barberReady)
         signal(accessWRSeats)
         # Cut Hair Here
-    
+        
                   </code>
               </pre>
             </div>
@@ -70,16 +75,20 @@
               <pre>
                 <code class="python">
     #CUSTOMER
-    wait(accessWRSeats)
-    if numberOfSeatWR>0 :
-        numberOfSeatWR--
-        signal(custReady)
-        signal(accessWRSeats)
-        wait(barberReady)
-    else :
-        signal(accessWRSeats)
+    while come :
+      wait(accessWRSeats)
+      if numberOfSeatWR>0 :
+          numberOfSeatWR--
+          signal(custReady)
+          signal(accessWRSeats)
+          wait(barberReady)
+      else :
+          signal(accessWRSeats)
                 </code>
               </pre>
+            </div>
+            <div class="text-center">
+              <button type="button" class="btn btn-dark" onclick="window.location.reload()" style="margin:auto">Reset</button>
             </div>
           </div>
         </div>
@@ -98,10 +107,13 @@
     ></script>
     <script>
       var numberOfSeatWR = 4;
+      var come = 0;
       var barberReady = 0;
       var accessWRSeats = 1;
       var custReady = 0;
+
       document.getElementById("numberOfSeatWR").innerHTML = numberOfSeatWR;
+      document.getElementById("come").innerHTML = come;
       document.getElementById("barberReady").innerHTML = barberReady;
       document.getElementById("accessWRSeats").innerHTML = accessWRSeats;
       document.getElementById("custReady").innerHTML = custReady;
@@ -113,6 +125,11 @@
           case 'numberOfSeatWR':
             numberOfSeatWR += 1;
             document.getElementById("numberOfSeatWR").innerHTML = numberOfSeatWR;
+            break;
+
+          case 'come':
+            come += 1;
+            document.getElementById("come").innerHTML = come;
             break;
 
           case 'barberReady':
@@ -139,6 +156,11 @@
           case 'numberOfSeatWR':
             numberOfSeatWR -= 1;
             document.getElementById("numberOfSeatWR").innerHTML = numberOfSeatWR;
+            break;
+
+          case 'come':
+            come -= 1;
+            document.getElementById("come").innerHTML = come;
             break;
 
           case 'barberReady':
