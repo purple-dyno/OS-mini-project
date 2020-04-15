@@ -1,6 +1,3 @@
-#root.columnconfigure(2, weight=1)
-#root.rowconfigure(0, weight=1)
-
 from threading import *
 import time
 from tkinter import *
@@ -42,12 +39,6 @@ def buttonClick():
     come = 1
 
 
-def signal1(s):
-    global custready
-    custready = s
-    custready = custready+1
-
-
 def wait1(s):
     global custready, c, img19
     cnt = 0
@@ -71,18 +62,24 @@ def wait1(s):
     custready = custready-1
 
 
-def signal2(s):
-    global access
-    access = s
-    access = access+1
-
-
 def wait2(s):
     global access
     access = s
     while(access <= 0):
         pass
     access = access-1
+
+
+def signal2(s):
+    global access
+    access = s
+    access = access+1
+
+
+def signal1(s):
+    global custready
+    custready = s
+    custready = custready+1
 
 
 class Barber(Thread):

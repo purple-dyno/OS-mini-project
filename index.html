@@ -29,27 +29,27 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm-12">
-              <pre><code>No of waiting seats available = 4</code></pre>
-              <button type="button" class="btn btn-dark">increase</button>
-              <button type="button" class="btn btn-dark">decrease</button>
+              <pre><code>numberOfSeatWR = <code id="numberOfSeatWR"></code></code></pre>
+              <button type="button" class="btn btn-dark" onclick="increase('numberOfSeatWR')">increase</button>
+              <button type="button" class="btn btn-dark" onclick="decrease('numberOfSeatWR')">decrease</button>
             </div>
             <div class="col-sm-4">
               <pre>
-                <code>barberReady = 0</code></pre>
-              <button type="button" class="btn btn-dark">increase</button>
-              <button type="button" class="btn btn-dark">decrease</button>
+                <code>barberReady =  <code id="barberReady"></code></code></pre>
+              <button type="button" class="btn btn-dark" onclick="increase('barberReady')">increase</button>
+              <button type="button" class="btn btn-dark" onclick="decrease('barberReady')">decrease</button>
             </div>
             <div class="col-sm-4">
               <pre>
-                <code>accessWRSeats = 1</code></pre>
-              <button type="button" class="btn btn-dark">increase</button>
-              <button type="button" class="btn btn-dark">decrease</button>
+                <code>accessWRSeats =  <code id="accessWRSeats"></code></code></pre>
+              <button type="button" class="btn btn-dark" onclick="increase('accessWRSeats')">increase</button>
+              <button type="button" class="btn btn-dark" onclick="decrease('accessWRSeats')">decrease</button>
             </div>
             <div class="col-sm-4">
               <pre>
-                <code>custReady = 0</code></pre>
-              <button type="button" class="btn btn-dark">increase</button>
-              <button type="button" class="btn btn-dark">decrease</button>
+                <code>custReady =  <code id="custReady"></code></code></pre>
+              <button type="button" class="btn btn-dark" onclick="increase('custReady')">increase</button>
+              <button type="button" class="btn btn-dark" onclick="decrease('custReady')">decrease</button>
             </div>
             <div class="col-sm-6">
               <pre>
@@ -96,5 +96,68 @@
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
+    <script>
+      var numberOfSeatWR = 4;
+      var barberReady = 0;
+      var accessWRSeats = 1;
+      var custReady = 0;
+      document.getElementById("numberOfSeatWR").innerHTML = numberOfSeatWR;
+      document.getElementById("barberReady").innerHTML = barberReady;
+      document.getElementById("accessWRSeats").innerHTML = accessWRSeats;
+      document.getElementById("custReady").innerHTML = custReady;
+
+      function increase(variable)
+      {
+        switch(variable)
+        {
+          case 'numberOfSeatWR':
+            numberOfSeatWR += 1;
+            document.getElementById("numberOfSeatWR").innerHTML = numberOfSeatWR;
+            break;
+
+          case 'barberReady':
+            barberReady += 1;
+            document.getElementById("barberReady").innerHTML = barberReady;
+            break;
+
+          case 'accessWRSeats':
+            accessWRSeats += 1;
+            document.getElementById("accessWRSeats").innerHTML = accessWRSeats;
+            break;
+
+          case 'custReady':
+            custReady += 1;
+            document.getElementById("custReady").innerHTML = custReady;
+            break;
+        }
+      }
+
+      function decrease(variable)
+      {
+        switch(variable)
+        {
+          case 'numberOfSeatWR':
+            numberOfSeatWR -= 1;
+            document.getElementById("numberOfSeatWR").innerHTML = numberOfSeatWR;
+            break;
+
+          case 'barberReady':
+            barberReady -= 1;
+            document.getElementById("barberReady").innerHTML = barberReady;
+            break;
+
+          case 'accessWRSeats':
+            accessWRSeats -= 1;
+            document.getElementById("accessWRSeats").innerHTML = accessWRSeats;
+            break;
+
+          case 'custReady':
+            custReady -= 1;
+            document.getElementById("custReady").innerHTML = custReady;
+            break;
+        }
+      }
+      
+    </script>
   </body>
 </html>
