@@ -1,3 +1,6 @@
+#root.columnconfigure(2, weight=1)
+#root.rowconfigure(0, weight=1)
+
 from threading import *
 import time
 from tkinter import *
@@ -16,7 +19,6 @@ def SBP():
     root.geometry("1920x1080")
     c = Canvas(root, bg='white', height=1080, width=1920)
     c.pack()
-    img = ImageTk.PhotoImage(Image.open("images/bg.jpg"))
 
     c.create_rectangle(100, 100, 1400, 650, fill='white')
     c.create_rectangle(110, 110, 500, 640, fill='white')
